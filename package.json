@@ -1,0 +1,45 @@
+{
+  "name": "bos-bikes",
+  "version": "1.0.0",
+  "description": "Get real-time info on Hubway stations. Bikes available - docks available",
+  "main": "cli.js",
+  "bin": {
+    "bikes": "cli.js"
+  },
+  "files": [
+    "cli.js"
+  ],
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamedhayibor/bos-bikes.git"
+  },
+  "keywords": [
+    "bike-sharing",
+    "bikes",
+    "sharing",
+    "commuting",
+    "cli",
+    "hubway",
+    "boston",
+    "real-time"
+  ],
+  "author": "Mohamed Hayibor <mohamedhayibor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mohamedhayibor/bos-bikes/issues"
+  },
+  "homepage": "https://github.com/mohamedhayibor/bos-bikes#readme",
+  "devDependencies": {
+    "ava": "^0.14.0"
+  },
+  "dependencies": {
+    "meow": "^3.7.0",
+    "request": "^2.72.0"
+  }
+}

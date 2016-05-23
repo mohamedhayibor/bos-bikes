@@ -1,14 +1,13 @@
 # bos-bikes
 
-## Bikes cli
-
+This module is a command line interface that gets you the real-time info on Hubway stations. Bikes available - docks available of a particular station.
 
 ## Installation
 ```
-  > npm install -g `city-code`-bikes
+  > npm install -g bos-bikes
 ```
 
-Don't forget the "-g" to install it globally. (then you can run bikes (command) anywhere)
+> Don't forget the "-g" to install it globally. (then you can run the bikes command anywhere)
 
 ## Usage
 
@@ -16,10 +15,10 @@ On your terminal:
 ```
   > bikes `station-id`
 ```
-Basically the bikes command and whatever bikes you want to check.
+Basically the bikes command and whatever station you want to check.
 
-At first use, you will obviously not know the id of a particular station.
-You can get that with the command `bikes --help`. It is a deliberate api design decision. The reality is that you most frequently use only 3 to 4 stations anyways. By your fourth use you will know the id by heart (one or two digits)
+At first, you will obviously not know the id of a particular station.
+You can get that with the command `bikes`. It is a deliberate api design decision. The reality is that you most frequently use only 3 to 4 stations anyways. By your fourth use, you will know the id by heart (one or two digits). Then you can pretty much make the query in less a second.
 
 ## Station's names and ids
 
@@ -190,21 +189,23 @@ You can get that with the command `bikes --help`. It is a deliberate api design 
 
 ## Raison d'être
 
-Going to a map (resizing, load time) is annoying and waste time. If you are using Boston's bike sharing system on a regular basis, download this global package and get the number of available bikes and docks instantly, right in your command line.
+Going to the [map](http://www.hubwaytracker.com/)  (resizing, load time) multiple times a day will waste some of your precious time. If you are using Boston's bike sharing system on a regular basis, download this global package and get the number of available bikes and docks on a particular station instantly, right in your command line.
 
 
 ##### Building on top
-Please send a PR, if could use these following to (additional features):
+Please send a PR, if could use these following to (additional features - nice design):
 
-> nicer design on displaying the list of ids and dates
->update notifier : to alert user a bike is available - empty dock available
->configstore: to persist data through manipulation
->chalk styling: making the updates and results colorful
+>update notifier : to alert user from cli that a bike is available - or - empty dock available (Hard but possible)
+
+>configstore: to persist data through manipulation (might anable the above feature)
+
+>chalk styling: making the updates and results colorful (nicer display)
 
 #### Api decisions
 
 No api to mess with. Enter the command `bikes` and the station id and get an instant update (number of bikes and docks available). Enter bikes only to get the updated list of stations ids and name. (response from api call)
 
+> few lines of code.
 
 ## License
 MIT © [Mohamed Hayibor](https://github.com/mohamedhayibor)

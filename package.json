@@ -1,6 +1,6 @@
 {
   "name": "bos-bikes",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Get real-time info on Hubway stations. Bikes available - docks available",
   "main": "cli.js",
   "bin": {

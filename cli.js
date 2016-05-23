@@ -10,6 +10,10 @@ q=select%20*%20from%20xml%20where%20url%3D%22http%3A%2F%2Fwww.thehubway.com
 const cli = meow(`
   Usage:
     bikes <station>
+
+    or
+    bikes (to get list of stations id, name)
+    
     -v/--version    Print version
     -h/--help       Print help
   `, {
@@ -22,7 +26,8 @@ const cli = meow(`
 
 // ********** General queries --help, version
 // at bikes --help > all ids and name should be diffed
-const station = cli.input.join(' ');
+const query = cli.input.join(' ');
+query = query.toLowerCase().trim();
 
 let rawData;
 let stations;
@@ -36,24 +41,29 @@ request(api, function (error, response, body) {
     stations = rawData.query.results.stations.station;
     // console.log( stations ) > currently parsing and working
     // if station is empty automatically render list of id and respective names
-    if (station.length < 1) {
-      process.stdout.write(`--- List of all station's names and ids ---
-        --- current Time ${ new Date() } ---`);
+    if (query.length < 1) {
+      process.stdout.write(`
+  --- List of all station's names and ids ---
+  --- current Time ${ new Date() } ---
+        `);
 
       stations.forEach( station => {
-        process.stdout.write(`id: ${ station.id } - station: ${ station.name } - bikes available: ${ station.nbBikes }`);
+        process.stdout.write(`
+  id: ${ station.id } - station: ${ station.name }
+          `);
       })
     } else {
-      station = Number(station);
+      // no need to coece query into a number === is enough
+      let result = stations.filter( station => station.id === query );
 
-      if (typof station !== 'number') {
-        throw new Error("The station's id should be a number");
-      }
+      process.stdout.write(`
+  Station: ${ result.name } - n. bikes: ${ result.nbBikes }
+                            - n. docks: ${ result.nbEmptyDocks }
+        `);
 
-      // process.stdout.write(` ${ stations[]}`)
-
+      process.stdout.write(`Have a nice ride and be safe!`);
+      process.exit(1)
     }
-
   }
 })
 

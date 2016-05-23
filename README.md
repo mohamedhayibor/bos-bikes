@@ -1,4 +1,4 @@
-# bos-bikes
+# bos-bikes ![Build Status](https://travis-ci.org/mohamedhayibor/bos-bikes.svg?branch=master)
 
 This module is a command line interface that gets you the real-time info on Hubway stations. Bikes available - docks available of a particular station.
 

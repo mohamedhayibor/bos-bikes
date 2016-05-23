@@ -4,9 +4,7 @@ const meow = require('meow');
 const chalk = require('chalk');
 const request = require('request');
 
-const api = 'http://query.yahooapis.com/v1/public/yql?
-q=select%20*%20from%20xml%20where%20url%3D%22http%3A%2F%2Fwww.thehubway.com
-%2Fdata%2Fstations%2FbikeStations.xml%22&format=json';
+const api = 'http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20xml%20where%20url%3D%22http%3A%2F%2Fwww.thehubway.com%2Fdata%2Fstations%2FbikeStations.xml%22&format=json';
 
 const cli = meow(`
   Usage:

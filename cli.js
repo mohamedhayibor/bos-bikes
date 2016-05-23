@@ -25,7 +25,7 @@ const cli = meow(`
 
 // ********** General queries --help, version
 // at bikes --help > all ids and name should be diffed
-const query = cli.input.join(' ');
+let query = cli.input.join(' ');
 query = query.toLowerCase().trim();
 
 let rawData;

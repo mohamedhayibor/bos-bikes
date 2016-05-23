@@ -55,9 +55,10 @@ request(api, function (error, response, body) {
       if (result.length < 1) throw new Error( chalk.bold.red('The id you entered is not valid.') );
 
       process.stdout.write(`
-  Station: ${ chalk.bold( result[0].name )  } - n. bikes: ${ result[0].nbBikes > 1 ? chalk.bold.green(result[0].nbBikes) : chalk.bold.red(result[0].nbBikes) }
-                            - n. docks: ${ result[0].nbEmptyDocks > 1 ? chalk.bold.green( result[0].nbEmptyDocks ) : chalk.bold.green( result[0].nbEmptyDocks ) }
-        `);
+  Station: ${ chalk.bold( result[0].name )  }
+          - n. available bikes: ${ result[0].nbBikes > 1 ? chalk.bold.green(result[0].nbBikes) : chalk.bold.red(result[0].nbBikes) }
+          - n. available docks: ${ result[0].nbEmptyDocks > 1 ? chalk.bold.green( result[0].nbEmptyDocks ) : chalk.bold.green( result[0].nbEmptyDocks ) }
+  `);
 
       process.stdout.write(`Have a nice ride and be safe!`);
       process.exit(1)

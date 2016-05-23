@@ -1,6 +1,6 @@
 # bos-bikes ![Build Status](https://travis-ci.org/mohamedhayibor/bos-bikes.svg?branch=master)
 
-This module is a command line interface that gets you the real-time info on Hubway stations. Bikes available - docks available of a particular station.
+This module is a command line tool that gets you the real-time info on Hubway stations. Particularly the number of bikes available for rent and the number of available docks.
 
 ## Installation
 ```
@@ -192,18 +192,17 @@ You can get that with the command `bikes`. It is a deliberate api design decisio
 Going to the [map](http://www.hubwaytracker.com/)  (resizing, load time) multiple times a day will waste some of your precious time. If you are using Boston's bike sharing system on a regular basis, download this global package and get the number of available bikes and docks on a particular station instantly, right in your command line.
 
 
-##### Building on top
-Please send a PR, if could use these following to (additional features - nice design):
+## Building on top
+Please send a PR, if have some experience with the following packages:
 
 >update notifier : to alert user from cli that a bike is available - or - empty dock available (Hard but possible)
 
 >configstore: to persist data through manipulation (might anable the above feature)
 
->chalk styling: making the updates and results colorful (nicer display)
 
-#### Api decisions
+#### Api
 
-No api to mess with. Enter the command `bikes` and the station id and get an instant update (number of bikes and docks available). Enter bikes only to get the updated list of stations ids and name. (response from api call)
+No api to mess with. Enter the command `bikes` and the `station-id` and get an instant update (number of bikes and docks available). Enter `bikes` only to get the updated list of stations ids and name. (response from api call)
 
 > few lines of code.
 

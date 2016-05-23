@@ -23,8 +23,8 @@ const cli = meow(`
     string: ['_']
 });
 
-// ********** General queries --help, version
-// at bikes --help > all ids and name should be diffed
+// ********** General queries
+// with only `bikes` command > all ids and name should be rendered
 let query = cli.input.join(' ');
 query = query.toLowerCase().trim();
 
@@ -35,14 +35,12 @@ request(api, function (error, response, body) {
   if (!error && response.statusCode == 200) {
     rawData = JSON.parse(body);
 
-
     stations = rawData.query.results.stations.station;
-    // console.log( stations ) > currently parsing and working
     // if station is empty automatically render list of id and respective names
     if (query.length < 1) {
       process.stdout.write(`
   --- List of all station's names and ids ---
-  --- current Time ${ new Date() } ---
+  --- current Time: ${ new Date() } ---
         `);
 
       stations.forEach( station => {

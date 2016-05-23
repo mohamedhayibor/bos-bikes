@@ -1,9 +1,9 @@
 import test from 'ava'
-import checker form './cli.js'
+import checker from './cli.js'
 
 // Will take care of tests afterwards - design first.
 
-test('should wait until api response before exiting', t => {
+test('should wait until api response before exiting', async t => {
   t.pass();
 });
 
@@ -28,5 +28,5 @@ test('Should return the same length for list of ids and names', t => {
 });
 
 test('Should return accurate list of ids and names', t => {
-  t.pass();
+
 });

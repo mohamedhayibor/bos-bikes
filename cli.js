@@ -13,7 +13,7 @@ const cli = meow(`
 
     or
     bikes (to get list of stations id, name)
-    
+
     -v/--version    Print version
     -h/--help       Print help
   `, {
@@ -34,7 +34,6 @@ let stations;
 
 request(api, function (error, response, body) {
   if (!error && response.statusCode == 200) {
-    process.stdout.write('------- async call successfully made');
     rawData = JSON.parse(body);
 
 
@@ -57,18 +56,12 @@ request(api, function (error, response, body) {
       let result = stations.filter( station => station.id === query );
 
       process.stdout.write(`
-  Station: ${ result.name } - n. bikes: ${ result.nbBikes }
-                            - n. docks: ${ result.nbEmptyDocks }
+  Station: ${ result[0].name } - n. bikes: ${ result[0].nbBikes }
+                            - n. docks: ${ result[0].nbEmptyDocks }
         `);
 
       process.stdout.write(`Have a nice ride and be safe!`);
       process.exit(1)
     }
   }
-})
-
-
-
-
-// specific queries - station by id
-// at any command an api call should be made
+});

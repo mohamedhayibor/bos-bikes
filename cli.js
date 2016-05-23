@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 const meow = require('meow');
+const chalk = require('chalk');
 const request = require('request');
 
 const api = 'http://query.yahooapis.com/v1/public/yql?
@@ -55,9 +56,11 @@ request(api, function (error, response, body) {
       // no need to coece query into a number === is enough
       let result = stations.filter( station => station.id === query );
 
+      if (result.length < 1) throw new Error( chalk.bold.red('The id you entered is not valid.') );
+
       process.stdout.write(`
-  Station: ${ result[0].name } - n. bikes: ${ result[0].nbBikes }
-                            - n. docks: ${ result[0].nbEmptyDocks }
+  Station: ${ chalk.bold( result[0].name )  } - n. bikes: ${ result[0].nbBikes > 1 ? chalk.bold.green(result[0].nbBikes) : chalk.bold.red(result[0].nbBikes) }
+                            - n. docks: ${ result[0].nbEmptyDocks > 1 ? chalk.bold.green( result[0].nbEmptyDocks ) : chalk.bold.green( result[0].nbEmptyDocks ) }
         `);
 
       process.stdout.write(`Have a nice ride and be safe!`);

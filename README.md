@@ -9,6 +9,8 @@ This module is a command line tool that gets you the real-time info on Hubway st
 
 > Don't forget the "-g" to install it globally. (then you can run the bikes command anywhere)
 
+![](http://g.recordit.co/OZ43tk2SA6.gif)
+
 ## Usage
 
 On your terminal:
